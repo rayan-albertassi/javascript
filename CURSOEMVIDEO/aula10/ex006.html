@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        #area{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15pt;
+            background-color: rgb(42, 139, 42);
+            color: white;
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="area" onclick="clique()" onmouseenter="entrar()" onmouseout="sair()" ondblclick="duploclique()">
+        Interaja...
+    </div>
+
+    <script>
+        
+
+        function clique() {
+            var a = document.getElementById("area");
+            a.innerText = "Clicou!"
+            a.style.backgroundColor = "darkred"
+        }
+
+            function entrar(){
+                var a = document.getElementById("area");
+                a.innerText = "Entrou!"
+        }
+
+        function sair(){
+                var a = document.getElementById("area");
+                a.innerText = "Saiu!"
+        }
+
+        function duploclique(){
+            var a = document.getElementById("area");
+            a.innerText = "INVENCÍVEL";
+            a.style.fontWeight = "bolder";
+            a.style.backgroundColor = "rgb(0, 170, 220)";
+            a.style.color = "rgb(255, 253, 81)";
+        }
+    </script>
+</body>
+</html>
