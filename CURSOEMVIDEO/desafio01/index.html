@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercício 1</title>
     <link rel="stylesheet" href="style.css">:
 </head>
-<body>
+<body onload="carregar()">
     <header>
         <h1>Hora do Dia</h1>
     </header>
@@ -14,7 +14,7 @@
     <main>
         <section>
             <h2 id="horaAtual">teste</h2>
-            <picture><img id="imagem" src="noite.jpg" alt=""></picture>            
+            <picture id="imagem"><img src="manha.avif" alt=""></picture>            
         </section>
     </main>
 
@@ -22,21 +22,6 @@
         <p>@CursoemVideo</p>
     </footer>
 
-    <script>
-        var data = new Date();
-        var hora = data.getHours();
-        var horaAtual = document.getElementById("horaAtual");
-        var imagem = document.getElementById("imagem");
-
-        horaAtual.textContent = "Agora são " + hora + " horas.";
-
-        if (hora >= 6 && hora < 12){
-            imagem.src = "manha.avif"
-        } else if (hora >= 12 && hora < 18) {
-
-        } else{
-
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
