@@ -20,7 +20,8 @@
                 <input type="radio" name="sexom" id="isexom"> <label for="isexom">Masculino</label>
                 <input type="radio" name="sexof" id="isexof"> <label for="isexof">Feminino</label>
                 <br>
-                <input type="submit" value="Verificar">
+                <input onclick="clique()" type="submit" value="Verificar">
+                <p id="mensagem">Preencha os dados para ver o resultado!</p>
             </table>
         </section>
     </main>
@@ -29,7 +30,15 @@
     </footer>
 
     <script>
-        
+        function clique(){
+            var data = new Date();
+            var ano = data.getFullYear();
+            var anoNascimento = document.getElementById("anoNascimento");
+            var idade = (ano - anoNascimento);
+            var mensagem = document.getElementById("mensagem")
+
+            mensagem.innerText = (idade + " anos.")
+        }
     </script>
 </body>
 </html>
