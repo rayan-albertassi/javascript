@@ -17,11 +17,12 @@ h1{
 }
 
 section{
+    border-radius: 10px;
     padding: 15px;
     margin: auto;
     background-color: white;
-    height: 500px;
-    width: 800px;
+    height: 250px;
+    width: 600px;
 }
 
 label, input{
@@ -34,8 +35,21 @@ label{
     padding-right: 10px;
 }
 
+picture{
+    display: none;
+    text-align: center;
+}
+
+img{
+    margin-top: 30px;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+}
+
 footer p{
-    
+    padding-top: 10px;
     text-align: center;
     color: white;
+    font-style: italic;
 }
