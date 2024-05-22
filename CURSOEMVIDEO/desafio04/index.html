@@ -16,7 +16,9 @@
             <label for="numero">Número: </label>
             <input type="number" name="numero" id="numero">
             <input onclick="clique()" type="submit" value="Gerar Tabuada">
-            <p id="msg">Resultado: <br></p>
+            <select name="tabuada" id="tabuada" size="10">
+                <option value="">Digite um número acima.</option>
+            </select>
         </section>
     </main>
 
@@ -29,14 +31,18 @@
             var num = Number(document.getElementById("numero").value);
             var sessao = document.getElementById("sessao");
             var msg = document.getElementById("msg");
+            let tabuada = document.getElementById("tabuada");
 
             
 
             if (num > 0){
-                sessao.style.height = "230px"
+                sessao.style.height = "230px";
+                tabuada.innerHTML = "";
                 for(c = 1; c <= 10; c++){
-                    var res = (num * c);
-                    msg.innerHTML += (num + " x " + c + " = " + res + "<br>");
+                    let item = document.createElement("option");
+                    item.text = `${num} x ${c} = ${num*c}`;
+                    tabuada.appendChild(item);
+
                 }
             } else{
                 window.alert("Digite um número válido.")

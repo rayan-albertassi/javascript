@@ -15,6 +15,11 @@ section{
     padding: 20px;
     margin: auto;
     background-color: white;
-    height: 100px;
+    height: 200px;
     width: 500px;
+}
+
+select{
+    display: block;
+    margin-top: 20px;
 }
