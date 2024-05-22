@@ -5,12 +5,21 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1, footer > p{
+    color: white;
+    text-align: center;
+}
+
 section{
     background-color: white;
     height: 220px;
     width: 600px;
     margin: auto;
     border-radius: 5px;
+}
+
+section > p{
+    color: black
 }
 
 label, input, p{

@@ -12,16 +12,16 @@
     </header>
 
     <main>
-        <section>
+        <section id="sessao">
             <label for="inicio">Início: </label>
             <input type="number" name="inicio" id="inicio"> <br>
             <label for="fim">Fim: </label>
             <input type="number" name="fim" id="fim"> <br>
             <label for="passo">Passo: </label>
             <input type="number" name="passo" id="passo"> <br>
-            <input type="submit" value="Contar">
+            <input onclick="clique()" type="submit" value="Contar">
 
-            <p>Preparando a contagem...</p>
+            <p id="msg"></p>
         </section>
     </main>
 
@@ -30,7 +30,23 @@
     </footer>
 
     <script>
+        function clique(){
+            var ini = Number(document.getElementById("inicio").value);
+            var fim = Number(document.getElementById("fim").value);
+            var passo = Number(document.getElementById("passo").value);
+            var msg = document.getElementById("msg");
+            var sessao = document.getElementById("sessao")
 
+            sessao.style.height = "400px";
+
+            msg.innerHTML = ("Preparando a contagem... <br>")
+
+            for(var i = ini; i <= fim; i = i + passo){
+                msg.innerHTML += i + "<br>";
+            }
+        }
+
+        
     </script>
 </body>
 </html>
