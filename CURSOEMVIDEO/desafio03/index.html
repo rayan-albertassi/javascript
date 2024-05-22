@@ -37,14 +37,26 @@
             var msg = document.getElementById("msg");
             var sessao = document.getElementById("sessao")
 
-            sessao.style.height = "400px";
+            if(fim == 0 || passo == 0){
+                window.alert("[ERRO] Faltam dados!")
+                msg.innerHTML = "Impossível contar."
+            } else{
+                sessao.style.height = "400px";
+                msg.innerHTML = ("Preparando a contagem... <br>")
 
-            msg.innerHTML = ("Preparando a contagem... <br>")
-
-            for(var i = ini; i <= fim; i = i + passo){
-                msg.innerHTML += i + "<br>";
+                if (ini < fim){
+                    for(var i = ini; i <= fim; i += passo){
+                        msg.innerHTML += `${i} `;
+                    }
+                } else{
+                    for(var i = ini; i >= fim; i -= passo){
+                        msg.innerHTML += `${i} `;
+                    }
+                }
             }
         }
+
+            
 
         
     </script>
