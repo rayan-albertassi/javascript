@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+
+    <main>
+        <section id="sessao">
+            <label for="numero">Número: </label>
+            <input type="number" name="numero" id="numero">
+            <input onclick="clique()" type="submit" value="Gerar Tabuada">
+            <p id="msg">Resultado: <br></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>@raysponsavel</p>
+    </footer>
+
+    <script>
+        function clique(){
+            var num = Number(document.getElementById("numero").value);
+            var sessao = document.getElementById("sessao");
+            var msg = document.getElementById("msg");
+
+            
+
+            if (num > 0){
+                sessao.style.height = "230px"
+                for(c = 1; c <= 10; c++){
+                    var res = (num * c);
+                    msg.innerHTML += (num + " x " + c + " = " + res + "<br>");
+                }
+            } else{
+                window.alert("Digite um número válido.")
+            }
+        }
+    </script>
+</body>
+</html>
