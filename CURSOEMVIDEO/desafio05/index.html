@@ -32,12 +32,13 @@
     <script>
         
         function cliqueAdicionar(){
-            let num = Number(document.getElementById("num").value);
+            
+            let num = Array(document.getElementById("num").value);
             var quadro = document.getElementById("quadro");
             var item = document.createElement("option");
             item.text = `${num}`;
             quadro.appendChild(item);
-            quadro.innerHTML +=;
+            quadro.innerHTML += `${item}`
         }
     </script>
 </body>
