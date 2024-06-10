@@ -30,15 +30,30 @@
     </footer>
 
     <script>
+        let numeros = [];
         
         function cliqueAdicionar(){
-            
-            let num = Array(document.getElementById("num").value);
+            let num = Number(document.getElementById("num").value);
+
+            numeros.push(num);
+            atualizarQuadro();
+            num.value = "";
+            num.focus();
+        }
+
+        function atualizarQuadro(){
             var quadro = document.getElementById("quadro");
-            var item = document.createElement("option");
-            item.text = `${num}`;
-            quadro.appendChild(item);
-            quadro.innerHTML += `${item}`
+            quadro.innerHTML = "";
+            quadro.disabled = false
+
+            numeros.forEach(function(num) {
+                var item = document.createElement("option");
+                item.text = num;
+                item.value = num;
+                quadro.appendChild(item);
+            });
+
+            
         }
     </script>
 </body>
