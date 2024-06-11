@@ -19,6 +19,7 @@
 
             <select name="quadro" id="quadro" disabled="disabled"></select>
             <input id="finalizar" type="submit" value="Finalizar" onclick="cliqueFinalizar()">
+            <p id="texto"></p>
         </section>
         <section>
 
@@ -33,7 +34,7 @@
         let numeros = [];
         
         function cliqueAdicionar(){
-            let num = Number(document.getElementById("num").value);
+            var num = Number(document.getElementById("num").value);
 
             numeros.push(num);
             atualizarQuadro();
@@ -52,8 +53,45 @@
                 item.value = num;
                 quadro.appendChild(item);
             });
-
+        }
+        
+        function cliqueFinalizar(){
+            let texto = document.getElementById("texto");
+            let sessao = document.getElementById("sessao")
+            sessao.style.height = "400px"
+            let maior = Math.max(...numeros);
+            let menor = Math.min(...numeros);
+            var quantidadeNumeros = numeros.length
+            let soma = numeros.reduce((acc, cur) => acc + cur, 0);
             
+            let media = soma / quantidadeNumeros;
+            // for (c = 0; c <= quantidadeNumeros; c++){
+            //     soma = soma + num[c];
+            // }
+            
+            // var maior = 0;
+            // var menor = 0;
+            // for (c = 0; c <= numeros[c]; c ++){
+            //     if (maior < numeros[c]){
+            //         maior = numeros[c];
+            //     }
+            // }  
+
+            // for (c = 0; c <= numeros[c]; c ++){
+            //     if (menor < numeros[c]){
+            //         menor = numeros[c];
+            //     }
+            // }  
+
+            texto.innerText = `Ao todo, temos ${numeros.length} números cadastrados.
+            
+            O maior número digitado foi ${maior}.
+            
+            O menor número digitado foi ${menor}.
+
+            A soma dos números é igual a ${soma}.
+            
+            A média dos números é igual a ${media}.`
         }
     </script>
 </body>
