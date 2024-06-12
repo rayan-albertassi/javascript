@@ -17,7 +17,7 @@
             <input type="number" name="num" id="num">
             <input type="submit" value="Adicionar" onclick="cliqueAdicionar()">
 
-            <select name="quadro" id="quadro" disabled="disabled"></select>
+            <select name="quadro" id="quadro" disabled="disabled" size="6"></select>
             <input id="finalizar" type="submit" value="Finalizar" onclick="cliqueFinalizar()">
             <p id="texto"></p>
         </section>
@@ -32,56 +32,65 @@
 
     <script>
         let numeros = [];
+        var num = document.querySelector("input#num");
+        var quadro = document.getElementById("quadro");
         
         function cliqueAdicionar(){
-            var num = Number(document.getElementById("num").value);
+            function isNumero(n){
+                if(Number(n) >= 1 && Number(n) <= 100){
+                    return true;
+                } else{
+                    return false;
+                }
+            }
 
-            numeros.push(num);
-            atualizarQuadro();
+            function inLista(n, l){
+                if (l.indexOf(Number(n)) != -1) {
+                    return true
+                } else{
+                    return false
+                }
+            }
+
+            if (isNumero(num.value) && !inLista(num.value, numeros)){
+                numeros.push(Number(num.value));
+                var item = document.createElement("option");
+                item.value = num;
+                item.text = `Valor ${num.value} adicionado.`;
+                quadro.appendChild(item);
+                quadro.disabled = false;
+            } else{
+                window.alert("Valor inválido ou já encontrado na lista.")
+            }
             num.value = "";
             num.focus();
         }
-
-        function atualizarQuadro(){
-            var quadro = document.getElementById("quadro");
-            quadro.innerHTML = "";
-            quadro.disabled = false
-
-            numeros.forEach(function(num) {
-                var item = document.createElement("option");
-                item.text = num;
-                item.value = num;
-                quadro.appendChild(item);
-            });
-        }
         
         function cliqueFinalizar(){
-            let texto = document.getElementById("texto");
-            let sessao = document.getElementById("sessao")
-            sessao.style.height = "400px"
-            let maior = Math.max(...numeros);
-            let menor = Math.min(...numeros);
-            var quantidadeNumeros = numeros.length
-            let soma = numeros.reduce((acc, cur) => acc + cur, 0);
+            if (numeros.length == 0){
+                window.alert("Adicione valores antes de finalizar!")
+            } else {
+                let texto = document.getElementById("texto");
+                let sessao = document.getElementById("sessao")
+                sessao.style.height = "400px"
+                // let maior = Math.max(...numeros);
+                // let menor = Math.min(...numeros);
+                let maior = numeros[0];
+                let menor = numeros[0];
+                let soma = 0;
+                
             
-            let media = soma / quantidadeNumeros;
-            // for (c = 0; c <= quantidadeNumeros; c++){
-            //     soma = soma + num[c];
-            // }
             
-            // var maior = 0;
-            // var menor = 0;
-            // for (c = 0; c <= numeros[c]; c ++){
-            //     if (maior < numeros[c]){
-            //         maior = numeros[c];
-            //     }
-            // }  
+                for (let pos in numeros){
+                    soma += numeros[pos]
+                    if (numeros[pos] > maior)
+                    maior = numeros[pos];
+                    if (numeros[pos] < menor)
+                    menor = numeros[pos];
+                }
+            let media = soma / numeros.length;
 
-            // for (c = 0; c <= numeros[c]; c ++){
-            //     if (menor < numeros[c]){
-            //         menor = numeros[c];
-            //     }
-            // }  
+            
 
             texto.innerText = `Ao todo, temos ${numeros.length} números cadastrados.
             
@@ -92,6 +101,7 @@
             A soma dos números é igual a ${soma}.
             
             A média dos números é igual a ${media}.`
+            }
         }
     </script>
 </body>
