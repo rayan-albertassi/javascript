@@ -1,0 +1,33 @@
+body{
+    background-color: #27272a;
+}
+
+#container{
+    display: flex;
+    /* row-gap: 50px;
+    column-gap: 10px; */
+    gap: 10px;
+    /* flex-direction: column; */
+    /* flex-wrap: wrap; */
+    /* flex-flow: column wrap*/
+    /* justify-content: center; */
+    /* align-items: center; */
+    height: 600px;
+    background-color: #6966f1;
+}
+
+.item{
+    background-color: #38bdf8;
+    /* width: 200px; */
+    height: 200px;
+}
+
+.item-3{
+    align-self: center;
+    order: 2;
+}
+
+.item-6{
+    flex-grow: 2;
+    order: 3;
+}
