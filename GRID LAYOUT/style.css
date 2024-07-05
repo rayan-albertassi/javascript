@@ -10,9 +10,11 @@ body{
 
     display: grid;
     grid-template-columns: 300px 300px;
-    grid-template-rows: 300px 300px;
-    align-items: center;
-    justify-items: center;
+    grid-template-rows: repeat(3, 300px);
+    /* align-items: center;
+    justify-items: center; */
+    grid-template-areas: "green yellow"
+    "red blue";
 }
 
 div{
@@ -22,17 +24,24 @@ div{
 
 .red{
     background-color: red;
+    /* grid-row: 2;
+    grid-column: 1; */
+    grid-area: red;
 }
 
 .blue{
     background-color: blue;
+    grid-area: blue;
 }
 
 .green{
     background-color: green;
-
+    /* grid-row: 1;
+    grid-column: 1; */
+    grid-area: green;
 }
 
 .yellow{
     background-color: yellow;
+    grid-area: yellow;
 }
