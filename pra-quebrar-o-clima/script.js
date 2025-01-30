@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const botaoSim = document.getElementById("sim");
     const body = document.body;
 
-    botaoNao.addEventListener("click", function (event) {
+    botaoNao.addEventListener("mouseenter", function (event) {
         // Obtém as dimensões da janela do navegador
         const larguraMax = window.innerWidth - botaoNao.clientWidth;
         const alturaMax = window.innerHeight - botaoNao.clientHeight;
