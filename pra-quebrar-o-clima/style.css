@@ -45,6 +45,10 @@ button {
   margin: 5px;
 }
 
+button:hover{
+  background-color: white;
+}
+
 #botoes {
   display: flex;
   flex-direction: row;
